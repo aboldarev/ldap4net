@@ -11,20 +11,20 @@ namespace LdapForNet.Native
         private const string LIB_LDAP_PATH = "Wldap32";
         internal delegate int LDAP_SASL_INTERACT_PROC(IntPtr ld, uint flags, IntPtr defaults, IntPtr interact);
         
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)] 
         internal static extern IntPtr ldap_init(string host, int port);
         
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_connect(SafeHandle ld,LDAP_TIMEVAL timeout);
 
-        [DllImport(LIB_LDAP_PATH, EntryPoint = "ldap_bindW")]
+        [DllImport(LIB_LDAP_PATH, EntryPoint = "ldap_bindW", CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_bind(SafeHandle ld, string who,  SEC_WINNT_AUTH_IDENTITY_EX credentials, BindMethod method, ref int msgidp); 
         
-        [DllImport(LIB_LDAP_PATH, EntryPoint = "ldap_bind_sW")]
+        [DllImport(LIB_LDAP_PATH, EntryPoint = "ldap_bind_sW", CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_bind_s(SafeHandle ld, string who,  SEC_WINNT_AUTH_IDENTITY_EX credentials, BindMethod method);
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_simple_bind_s(SafeHandle ld, string who, string cred);
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_simple_bind(SafeHandle ld, string who, string cred);
 
 
@@ -39,7 +39,7 @@ namespace LdapForNet.Native
         /// <param name="clientctrls">LDAPControl         **clientctrls</param>
         /// <param name="msgidp">int *msgidp</param>
         /// <returns>result code</returns>
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_sasl_bind(SafeHandle ld, string dn, string mechanism,
             IntPtr cred, IntPtr serverctrls, IntPtr clientctrls, ref int msgidp);
         
@@ -56,7 +56,7 @@ namespace LdapForNet.Native
         /// <param name="proc">delegate</param>
         /// <param name="defaults">void *defaults</param>
         /// <returns>result code</returns>
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_sasl_interactive_bind_s(SafeHandle ld, string dn, string mechanism,
             IntPtr serverctrls, IntPtr clientctrls, uint flags,
             [MarshalAs(UnmanagedType.FunctionPtr)] LDAP_SASL_INTERACT_PROC proc, IntPtr defaults);
@@ -76,31 +76,31 @@ namespace LdapForNet.Native
         /// <param name="rmech"></param>
         /// <param name="msgid"></param>
         /// <returns>result code</returns>
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_sasl_interactive_bind(SafeHandle ld, string dn, string mechanism,
             IntPtr serverctrls, IntPtr clientctrls, uint flags,
             [MarshalAs(UnmanagedType.FunctionPtr)] LDAP_SASL_INTERACT_PROC proc, IntPtr defaults, IntPtr result, ref IntPtr rmech, ref int msgid);
         
 
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_set_option(SafeHandle ld, int option, [In] ref int invalue);
 
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_set_option(SafeHandle ld, int option, [In] ref string invalue);
 
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_set_option(SafeHandle ld, int option, IntPtr invalue);
 
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_get_option(SafeHandle ld, int option, ref string value);
 
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_get_option(SafeHandle ld, int option, ref IntPtr value);
 
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_unbind_s(IntPtr ld);
 
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_unbind(IntPtr ld);
         
         /// <summary>
@@ -118,7 +118,7 @@ namespace LdapForNet.Native
         /// <param name="sizelimit">int sizelimit</param>
         /// <param name="msgidp">int *msgidp</param>
         /// <returns>result code</returns>
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern int ldap_search_ext(SafeHandle ld, string @base, int scope, string filter, string[] attrs,
             int attrsonly, IntPtr serverctrls, IntPtr clientctrls, IntPtr timeout, int sizelimit, ref int msgidp);
 
@@ -131,16 +131,16 @@ namespace LdapForNet.Native
         /// <param name="timeout">struct timeval *timeout</param>
         /// <param name="pMessage">LDAPMessage **result</param>
         /// <returns>result type </returns>
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         internal static extern Native.LdapResultType ldap_result(SafeHandle ld, int msgid, int all, IntPtr timeout,ref IntPtr pMessage);
         
         
         
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         private static extern uint LdapGetLastError();
 
         
-        [DllImport(LIB_LDAP_PATH)]
+        [DllImport(LIB_LDAP_PATH, CallingConvention = CallingConvention.Cdecl)]
         private static extern IntPtr ldap_err2string(int error);
 
         internal static string LdapError2String(int error)
