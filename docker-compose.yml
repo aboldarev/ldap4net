@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  testconnectcore:
+    image: ${DOCKER_REGISTRY-}testconnectcore
+    build:
+      context: .
+      dockerfile: testConnectCore\Dockerfile
+
+  testconnect:
+    image: ${DOCKER_REGISTRY-}testconnect
+    build:
+      context: .\testConnect
+      dockerfile: Dockerfile
+

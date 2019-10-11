@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LdapForNet.Tests", "LdapForNet.Tests\LdapForNet.Tests.csproj", "{06A35ED3-76EA-47F3-83EA-A1F39BC3F5D7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LdapForNet", "LdapForNet\LdapForNet.csproj", "{BD3159AA-4A81-4DDB-BDB7-6E262FBE41D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testConnect", "testConnect\testConnect.csproj", "{6656EF9A-AA6A-40EA-BA2E-D3E3B6FF0C1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testConnectCore", "testConnectCore\testConnectCore.csproj", "{9BA06676-E30A-4A6A-9378-AC32980EBEB0}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{FB039AB2-FD4C-48F9-9421-16B38ADEF371}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +27,18 @@ Global
 		{BD3159AA-4A81-4DDB-BDB7-6E262FBE41D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD3159AA-4A81-4DDB-BDB7-6E262FBE41D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD3159AA-4A81-4DDB-BDB7-6E262FBE41D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6656EF9A-AA6A-40EA-BA2E-D3E3B6FF0C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6656EF9A-AA6A-40EA-BA2E-D3E3B6FF0C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6656EF9A-AA6A-40EA-BA2E-D3E3B6FF0C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6656EF9A-AA6A-40EA-BA2E-D3E3B6FF0C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA06676-E30A-4A6A-9378-AC32980EBEB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA06676-E30A-4A6A-9378-AC32980EBEB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA06676-E30A-4A6A-9378-AC32980EBEB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA06676-E30A-4A6A-9378-AC32980EBEB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB039AB2-FD4C-48F9-9421-16B38ADEF371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB039AB2-FD4C-48F9-9421-16B38ADEF371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB039AB2-FD4C-48F9-9421-16B38ADEF371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB039AB2-FD4C-48F9-9421-16B38ADEF371}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
